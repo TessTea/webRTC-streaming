@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!--
+ *  Copyright (c) 2015 The WebRTC project authors. All Rights Reserved.
+ *
+ *  Use of this source code is governed by a BSD-style license
+ *  that can be found in the LICENSE file in the root of the source
+ *  tree.
+-->
+<html>
+<body>
+
+<video autoplay></video>
+
+<script>
+navigator.getUserMedia = navigator.getUserMedia || navigator.mozGetUserMedia || navigator.webkitGetUserMedia;
+navigator.getUserMedia({ audio: true, video: true }, gotStream, streamError);
+
+function gotStream(stream) {
+   document.querySelector('video').srcObject = stream;
+}
+
+function streamError(error) {
+   console.log(error);
+}
+</script>
+</body>
+</html>
